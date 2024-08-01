@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>David Failor CSS Animation Randomness</title>
+<meta name="viewport" content="width=device-width, inital-scale=1.0" />
+
+<style>
+	:root {
+	  --randa-x: 0px;
+	  --randa-y: 0px;
+	  }
+
+	.circle1{
+	width:10px;
+	height:10px;
+	padding:12px;
+	margin-left:20px;
+	margin-top:10px;
+	border-radius:50%;
+	animation-name:rollem;
+	animation-duration:10s;
+	animation-iteration-count:infinite;
+	animation-timing-function:linear;
+	}
+
+	.circle2{
+	width:120px;
+	height:120px;
+	padding:20px;
+	margin-left:100px;
+	margin-top:100px;
+	border-radius:2%;
+	animation-direction:alternate-reverse;
+	animation-name:rollemboys;
+	animation-duration:10s;
+	animation-iteration-count:infinite;
+	animation-timing-function:linear;
+	}
+
+	@keyframes rollem{
+
+		0%{
+			scale:70%;
+			background-color:rgb(100,0,150);
+		}
+
+		30%{
+			scale:120%;
+			
+			transform:translate(var(--randa-x), var(--randa-y));
+		}
+		50%{
+			scale:400%;
+			background-color:rgb(255,255,255);
+		}
+		75%{
+			scale:120%
+			background-color:rgb(255,245,255);
+		}
+		100%{
+			scale:75%;
+			background-color:purple;
+		}
+		
+
+	}
+
+	@keyframes rollemboys{
+
+		0%{
+			scale:70%;
+			background-color:purple;
+		}
+
+		30%{
+			scale:120%;
+			background-color:purple;
+			transform:translate(var(--randa-x), var(--randa-y));
+			
+		}
+		50%{
+			scale:200%;
+			background-color:yellow;
+		}
+		75%{
+			scale:120%
+			background-color:green;
+			transform:rotate(360deg);
+		}
+		100%{
+			scale:75%;
+			background-color:red;
+		}
+		
+
+	}
+</style>
+</head>
+<body>
+
+<div id="div1" class="circle1"></div>
+<br/>
+<button id="btn1" onclick='YooHoo()'>JS Change CSS</button>
+<script>
+	function YooHoo() {
+		const myDoc = document.documentElement;
+		myDoc.style.setProperty('--randa-x', Math.floor(Math.random() * 300) + 'px');
+		myDoc.style.setProperty('--randa-y', Math.floor(Math.random() * 500) + 'px');
+		document.getElementById('div1').classList.toggle('circle2');
+		console.log(myDoc.style.cssText);
+		}
+</script>
+</body>
+</html>
