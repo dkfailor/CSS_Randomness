@@ -13,6 +13,8 @@ From JS, use "document.documentElement.style." and from CSS create root variable
 Then in your CSS code you access the variables using "var(--variableA)" and you access this same variable from JavaScript
 by using document.documentElement.style.setProperty('--variableA','some_property').
 
+If this is new to you, please note that the "var" we are talking about in CSS is **not** the same as the "var" this is often outdated in JavaScript in favor of "const" and "let".
+
 # Run the code
 I included a sample of my code in this repository for you to view.  I included the CSS and JS all in the same page as the HTML file.
 This should make it easier to download and run for yourself.  Open the console to see additional "behind-the-scenes" details.
